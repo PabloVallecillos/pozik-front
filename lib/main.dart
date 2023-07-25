@@ -1,7 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
+import 'package:sentry_logging/sentry_logging.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'config/env.dart';
+
+Future<void> main() async {
+  await SentryFlutter.init((SentryFlutterOptions options) {
+    options.dsn = isProduction ? dotenv.get('SENTRY_DSN') : '';
+    options.tracesSampleRate = isProduction ? 0.6 : 1.0;
+    options.autoAppStart = false;
+    options.attachThreads = true;
+    options.enableWindowMetricBreadcrumbs = true;
+    options.captureFailedRequests = true;
+    options.maxRequestBodySize = MaxRequestBodySize.always;
+    options.addIntegration(LoggingIntegration());
+  },
+  appRunner: () => runApp(
+    DefaultAssetBundle(
+      bundle: SentryAssetBundle(),
+      child: const MyApp()
+    )
+  ));
 }
 
 class MyApp extends StatelessWidget {
