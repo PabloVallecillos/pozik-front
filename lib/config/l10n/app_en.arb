@@ -1,0 +1,42 @@
+{
+  "user": "user",
+  "password": "password",
+  "or": "or",
+  "mail": "Email",
+  "login": "login",
+  "register": "register",
+  "welcome_intro": "Welcome to the future of social networks, have fun with us and your friends",
+  "enter": "login",
+  "is_required": "{entity} {required}",
+  "@is_required": {
+    "placeholders": {
+      "entity": {
+        "type": "String",
+        "example": "Username"
+      },
+      "required": {
+        "type": "String",
+        "example": "Required"
+      }
+    }
+  },
+  "required_male": "required",
+  "required_female": "required",
+  "incorrect": "Incorrect {entity}",
+  "@incorrect": {
+    "placeholders": {
+      "entity": {
+        "type": "String",
+        "example": "Email"
+      }
+    }
+  },
+  "password_length": "The password must be at least {characters} characters long",
+  "@password_length": {
+    "placeholders": {
+      "characters": {
+        "type": "String"
+      }
+    }
+  }
+}

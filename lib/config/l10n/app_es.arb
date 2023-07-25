@@ -1,0 +1,42 @@
+{
+  "user": "usuario",
+  "password": "contraseña",
+  "or": "o",
+  "mail": "email",
+  "login": "iniciar sesión",
+  "register": "registrarse",
+  "welcome_intro": "Bienvenido al futuro de las redes sociales, diviertete con nosotros y tus amigos",
+  "enter": "acceder",
+  "is_required": "{entity} {required}",
+  "@is_required": {
+    "placeholders": {
+      "entity": {
+        "type": "String",
+        "example": "Nombre de usuario"
+      },
+      "required": {
+        "type": "String",
+        "example": "Requerido"
+      }
+    }
+  },
+  "required_male": "requerido",
+  "required_female": "requerida",
+  "incorrect": "{entity} incorrecto",
+  "@incorrect": {
+    "placeholders": {
+      "entity": {
+        "type": "String",
+        "example": "Correo electrónico"
+      }
+    }
+  },
+  "password_length": "La contraseña debe tener al menos {characters} caracteres",
+  "@password_length": {
+    "placeholders": {
+      "characters": {
+        "type": "String"
+      }
+    }
+  }
+}
