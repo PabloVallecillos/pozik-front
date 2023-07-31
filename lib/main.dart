@@ -1,7 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:pozik_front/config/firebase/firebase_options.dart';
 import 'package:pozik_front/utils/extensions/string.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:sentry_logging/sentry_logging.dart';
@@ -10,6 +12,8 @@ import 'config/env.dart';
 import 'config/themes.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await dotenv.load();
   await SentryFlutter.init((SentryFlutterOptions options) {
     options.dsn = isProduction ? dotenv.get('SENTRY_DSN') : dotenv.get('SENTRY_DSN');
