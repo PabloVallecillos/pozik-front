@@ -18,10 +18,10 @@ ThemeData lightTheme = ThemeData(
     ),
   ),
   tabBarTheme: TabBarTheme(
-    labelStyle: GoogleFonts.comfortaa(
+    labelStyle: GoogleFonts.montserrat(
       fontWeight: FontWeight.bold
     ),
-    unselectedLabelStyle: GoogleFonts.comfortaa(
+    unselectedLabelStyle: GoogleFonts.montserrat(
       fontWeight: FontWeight.normal
     ),
     labelColor: Colors.black,
@@ -80,27 +80,30 @@ ThemeData lightTheme = ThemeData(
     surface: Color(0xfff7f7f7),
     onSurface: Color(0xfff7f7f7),
   ),
-  textTheme: GoogleFonts.comfortaaTextTheme(
-    const TextTheme(
-      subtitle1: TextStyle(
-        color: Colors.white,
+  textTheme: GoogleFonts.montserratTextTheme(
+    TextTheme(
+      titleLarge: TextStyle(
+        fontWeight: FontWeight.w900
       ),
-    ),
+      labelLarge: TextStyle(
+        fontWeight: FontWeight.w500
+      )
+    )
   ),
   pageTransitionsTheme: const PageTransitionsTheme(builders: <TargetPlatform, PageTransitionsBuilder>{
     TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
     TargetPlatform.android: CupertinoPageTransitionsBuilder(),
   }),
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ButtonStyle(
-      overlayColor: MaterialStateProperty.all(Colors.white12),
-      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-        RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(50),
-        )
-      )
-    )
-  ),
+  // elevatedButtonTheme: ElevatedButtonThemeData(
+  //   style: ButtonStyle(
+  //     overlayColor: MaterialStateProperty.all(Colors.white12),
+  //     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+  //       RoundedRectangleBorder(
+  //         borderRadius: BorderRadius.circular(50),
+  //       )
+  //     )
+  //   )
+  // ),
 );
 
 ThemeData darkTheme = ThemeData(
@@ -108,10 +111,10 @@ ThemeData darkTheme = ThemeData(
   primarySwatch: CustomMaterialColor(primary.red, primary.green, primary.blue).mdColor,
   brightness: Brightness.dark,
   tabBarTheme: TabBarTheme(
-    labelStyle: GoogleFonts.comfortaa(
+    labelStyle: GoogleFonts.montserrat(
       fontWeight: FontWeight.bold
     ),
-    unselectedLabelStyle: GoogleFonts.comfortaa(
+    unselectedLabelStyle: GoogleFonts.montserrat(
       fontWeight: FontWeight.normal
     ),
     labelColor: Colors.white,
@@ -188,7 +191,7 @@ ThemeData darkTheme = ThemeData(
     onSurface: Color(0xfff7f7f7),
   ),
   // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-  textTheme: GoogleFonts.comfortaaTextTheme(
+  textTheme: GoogleFonts.montserratTextTheme(
     const TextTheme(
       subtitle1: TextStyle(
         color: Colors.white,
