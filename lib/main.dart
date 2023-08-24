@@ -5,13 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:pozik_front/config/firebase/firebase_options.dart';
-import 'package:pozik_front/screens/welcome_screen.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:sentry_logging/sentry_logging.dart';
 
 import 'config/env.dart';
+import 'config/firebase/firebase_options.dart';
+import 'config/routes.dart';
 import 'config/themes.dart';
+import 'utils/material/messenger_service.dart';
+import 'utils/material/navigator_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -70,8 +72,10 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver  {
       builder: (BuildContext context, Brightness value, Widget? child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
+          title: appTitle,
           theme: value == Brightness.dark ? darkTheme : lightTheme,
+          navigatorKey: navigatorKey,
+          scaffoldMessengerKey: messengerKey,
           localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
@@ -82,7 +86,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver  {
             Locale('en', ''),
             Locale('es', ''),
           ],
-          home: const WelcomeScreen(),
+          initialRoute: dashboardRoute,
+          routes: routes
         );
       }
     );
