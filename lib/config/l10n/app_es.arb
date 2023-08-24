@@ -38,5 +38,10 @@
         "type": "String"
       }
     }
-  }
+  },
+  "name": "nombre",
+  "password_copy": "Repetir contraseña",
+  "passwords_match": "Las contraseñas deben coincidir",
+  "passwords_not_match": "Las contraseñas no coinciden",
+  "surname": "apellidos"
 }

@@ -38,5 +38,10 @@
         "type": "String"
       }
     }
-  }
+  },
+  "name": "name",
+  "password_copy": "Repeat password",
+  "passwords_match": "Passwords must match",
+  "passwords_not_match": "Passwords do not match",
+  "surname": "surname"
 }

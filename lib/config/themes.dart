@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../utils/custom_material_color.dart';
+import '../utils/material/custom_material_color.dart';
 import 'colors.dart';
 
 ThemeData lightTheme = ThemeData(
@@ -16,6 +16,10 @@ ThemeData lightTheme = ThemeData(
     iconTheme: IconThemeData(
       color: Colors.black
     ),
+  ),
+  navigationBarTheme: NavigationBarThemeData(
+    indicatorColor: primary, // Color of the selected tab indicator
+    iconTheme: MaterialStateProperty.all(const IconThemeData(color: Colors.white)), // Color of navigation bar icons
   ),
   tabBarTheme: TabBarTheme(
     labelStyle: GoogleFonts.montserrat(
@@ -104,6 +108,15 @@ ThemeData lightTheme = ThemeData(
   //     )
   //   )
   // ),
+  snackBarTheme: SnackBarThemeData(
+    behavior: SnackBarBehavior.floating,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10.0),
+    ),
+  ),
+  bottomSheetTheme: BottomSheetThemeData(
+    backgroundColor: Colors.transparent
+  ),
 );
 
 ThemeData darkTheme = ThemeData(
@@ -127,6 +140,12 @@ ThemeData darkTheme = ThemeData(
     ),
     iconTheme: IconThemeData(
       color: Colors.white
+    ),
+  ),
+  snackBarTheme: SnackBarThemeData(
+    behavior: SnackBarBehavior.floating,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10.0),
     ),
   ),
   inputDecorationTheme: const InputDecorationTheme(
@@ -192,11 +211,14 @@ ThemeData darkTheme = ThemeData(
   ),
   // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
   textTheme: GoogleFonts.montserratTextTheme(
-    const TextTheme(
-      subtitle1: TextStyle(
-        color: Colors.white,
+    TextTheme(
+      titleLarge: TextStyle(
+        fontWeight: FontWeight.w900
       ),
-    ),
+      labelLarge: TextStyle(
+        fontWeight: FontWeight.w500
+      )
+    )
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
