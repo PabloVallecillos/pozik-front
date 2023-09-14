@@ -79,6 +79,7 @@ flutter:
   assets:
      - assets/mp4/
      - assets/svg/
+     - assets/jpg/
      - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
