@@ -3,10 +3,19 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../utils/material/custom_material_color.dart';
 import 'colors.dart';
+import 'layout.dart';
 
 ThemeData lightTheme = ThemeData(
   useMaterial3: true,
   primarySwatch: CustomMaterialColor(primary.red, primary.green, primary.blue).mdColor,
+  listTileTheme: ListTileThemeData(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(radiusCircular)
+    ),
+  ),
+  radioTheme: RadioThemeData(
+    fillColor: MaterialStateProperty.all(primary),
+  ),
   appBarTheme: const AppBarTheme(
     backgroundColor: Colors.transparent,
     foregroundColor: Colors.black,
@@ -33,26 +42,26 @@ ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
   inputDecorationTheme: const InputDecorationTheme(
     contentPadding: EdgeInsets.all(15),
-    border: OutlineInputBorder(),
     floatingLabelStyle: TextStyle(
       fontWeight: FontWeight.bold,
-      color: Colors.white
+      color: primary
     ),
     enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(50)),
+      borderRadius: BorderRadius.all(Radius.circular(radiusCircular)),
       borderSide: BorderSide(
-        color: primary
+        width: 2,
+        color: primary,
       ),
     ),
     errorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(50)),
+      borderRadius: BorderRadius.all(Radius.circular(radiusCircular)),
       borderSide: BorderSide(
         width: 2,
         color: red
       ),
     ),
     focusedErrorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(50)),
+      borderRadius: BorderRadius.all(Radius.circular(radiusCircular)),
       borderSide: BorderSide(
         width: 3,
         color: red
@@ -63,13 +72,15 @@ ThemeData lightTheme = ThemeData(
       color: red
     ),
     focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(50)),
+      borderRadius: BorderRadius.all(Radius.circular(radiusCircular)),
       borderSide: BorderSide(
         width: 2,
         color: primary,
       ),
     ),
-    labelStyle: TextStyle(color: Colors.white),
+    labelStyle: TextStyle(
+      fontWeight: FontWeight.bold
+    )
   ),
   colorScheme: const ColorScheme(
     error: red,
@@ -98,23 +109,21 @@ ThemeData lightTheme = ThemeData(
     TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
     TargetPlatform.android: CupertinoPageTransitionsBuilder(),
   }),
-  // elevatedButtonTheme: ElevatedButtonThemeData(
-  //   style: ButtonStyle(
-  //     overlayColor: MaterialStateProperty.all(Colors.white12),
-  //     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-  //       RoundedRectangleBorder(
-  //         borderRadius: BorderRadius.circular(50),
-  //       )
-  //     )
-  //   )
-  // ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      minimumSize: const Size.fromHeight(50),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(radiusCircular)
+      ),
+    ),
+  ),
   snackBarTheme: SnackBarThemeData(
     behavior: SnackBarBehavior.floating,
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(10.0),
+      borderRadius: BorderRadius.circular(radiusCircular),
     ),
   ),
-  bottomSheetTheme: BottomSheetThemeData(
+  bottomSheetTheme: const BottomSheetThemeData(
     backgroundColor: Colors.transparent
   ),
 );
@@ -123,6 +132,14 @@ ThemeData darkTheme = ThemeData(
   useMaterial3: true,
   primarySwatch: CustomMaterialColor(primary.red, primary.green, primary.blue).mdColor,
   brightness: Brightness.dark,
+  radioTheme: RadioThemeData(
+    fillColor: MaterialStateProperty.all(primary),
+  ),
+  listTileTheme: ListTileThemeData(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(radiusCircular)
+    ),
+  ),
   tabBarTheme: TabBarTheme(
     labelStyle: GoogleFonts.montserrat(
       fontWeight: FontWeight.bold
@@ -151,26 +168,25 @@ ThemeData darkTheme = ThemeData(
   inputDecorationTheme: const InputDecorationTheme(
     contentPadding: EdgeInsets.all(15),
     isDense: true,
-    border: OutlineInputBorder(),
     floatingLabelStyle: TextStyle(
       fontWeight: FontWeight.bold,
       color: Colors.white
     ),
     enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(50)),
+      borderRadius: BorderRadius.all(Radius.circular(radiusCircular)),
       borderSide: BorderSide(
         color: primary
       ),
     ),
     errorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(50)),
+      borderRadius: BorderRadius.all(Radius.circular(radiusCircular)),
       borderSide: BorderSide(
         width: 2,
         color: red
       ),
     ),
     focusedErrorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(50)),
+      borderRadius: BorderRadius.all(Radius.circular(radiusCircular)),
       borderSide: BorderSide(
         width: 3,
         color: red
@@ -181,7 +197,7 @@ ThemeData darkTheme = ThemeData(
       color: red
     ),
     focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(50)),
+      borderRadius: BorderRadius.all(Radius.circular(radiusCircular)),
       borderSide: BorderSide(
         width: 2,
         color: primary

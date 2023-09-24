@@ -1,18 +1,14 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:pozik_front/config/colors.dart';
 import 'package:pozik_front/widgets/modals/register.dart';
 import 'package:story/story_page_view.dart';
-import 'package:video_player/video_player.dart';
 
 import '../config/icons.dart';
-import '../utils/material/gradient.dart';
-import '../widgets/buttons/glassmorphism_button.dart';
-import '../widgets/containers/glass_morphism.dart';
 import '../widgets/modals/login.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -25,22 +21,15 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen> {
   final ValueNotifier<IndicatorAnimationCommand> _indicatorAnimationController = ValueNotifier<IndicatorAnimationCommand>(IndicatorAnimationCommand.resume);
   List<Widget> _stories = <Widget>[];
-  late VideoPlayerController _videoController;
-  late Future<void> _initializeVideoPlayerFuture;
 
   @override
   void initState() {
     super.initState();
-    _videoController = VideoPlayerController.asset('assets/mp4/welcome_back.mp4');
-    _initializeVideoPlayerFuture = _videoController.initialize();
-    _videoController.setLooping(true);
-    _videoController.play();
   }
 
   @override
   void dispose() {
     _indicatorAnimationController.dispose();
-    _videoController.dispose();
     super.dispose();
   }
 
@@ -48,23 +37,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return Stack(
       fit: StackFit.expand,
       children: <Widget>[
-        FutureBuilder<void>(
-          future: _initializeVideoPlayerFuture,
-          builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-            if (snapshot.connectionState == ConnectionState.done) {
-              return AspectRatio(
-                aspectRatio: _videoController.value.aspectRatio,
-                child: VideoPlayer(_videoController),
-              );
-            } else {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-          },
-        ),
         Container(
-          color: Colors.black.withOpacity(.5),
+          color: primary.withOpacity(.1),
         ),
         Padding(
           padding: const EdgeInsets.all(40),
@@ -78,19 +52,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     );
   }
 
-  Widget glassmorphismCircle() {
+  Widget positionedCircle() {
     return Positioned(
       bottom: 4,
       left: 16,
-      child: GlassmorphicContainer(
+      child: Container(
         width: 60,
         height: 60,
-        blur: 3,
-        linearGradient: linearGradient(),
-        borderGradient: borderGradient(),
-        border: 0,
-        shape: BoxShape.circle,
-        borderRadius: const BorderRadius.all(Radius.circular(60)),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.white.withOpacity(.3),
+        ),
       ),
     );
   }
@@ -99,13 +71,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return baseStory(<Widget>[
       Text(
         'Desarrollando la Psicometría del Futuro',
-        style: Theme.of(context).textTheme.titleLarge,
+        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+          color: primary
+        ),
         textAlign: TextAlign.center,
       ),
       RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
-          style: Theme.of(context).textTheme.titleMedium,
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+            color: Colors.black
+          ),
           children: <TextSpan>[
             TextSpan(text: 'Evalúa tu estado psicológico con'),
             TextSpan(text: ' IPSA ', style: TextStyle(fontWeight: FontWeight.bold)),
@@ -120,13 +96,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return baseStory(<Widget>[
       Text(
         '¿Cómo funciona IPSA?',
-        style: Theme.of(context).textTheme.titleLarge,
+        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+          color: primary
+        ),
         textAlign: TextAlign.center,
       ),
       RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
-          style: Theme.of(context).textTheme.titleMedium,
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+            color: Colors.black
+          ),
           children: <TextSpan>[
             TextSpan(text: 'IPSA evaluará tu psicología en 3 niveles:'),
           ]
@@ -139,23 +119,27 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return baseStory(<Widget>[
       Stack(
         children: [
-          glassmorphismCircle(),
+          positionedCircle(),
           SvgPicture.asset(
             faceSmileIcon,
-            colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+            colorFilter: const ColorFilter.mode(primary, BlendMode.srcIn),
             width: 80,
           ),
         ],
       ),
       Text(
         'Personalidad Blanca',
-        style: Theme.of(context).textTheme.titleLarge,
+        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+          color: primary
+        ),
         textAlign: TextAlign.center,
       ),
       RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
-          style: Theme.of(context).textTheme.titleMedium,
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+            color: Colors.black
+          ),
           children: <TextSpan>[
             TextSpan(text: 'IPSA evaluará cual es tu personalidad base, es decir, cuál es tu manera de ser habitual'),
           ]
@@ -168,23 +152,27 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return baseStory(<Widget>[
       Stack(
         children: <Widget>[
-          glassmorphismCircle(),
+          positionedCircle(),
           SvgPicture.asset(
             faceAngryIcon,
-            colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+            colorFilter: const ColorFilter.mode(primary, BlendMode.srcIn),
             width: 80,
           ),
         ],
       ),
       Text(
         'Personalidad Negra',
-        style: Theme.of(context).textTheme.titleLarge,
+        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+          color: primary
+        ),
         textAlign: TextAlign.center,
       ),
       RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
-          style: Theme.of(context).textTheme.titleMedium,
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+            color: Colors.black
+          ),
           children: <TextSpan>[
             TextSpan(text: 'IPSA evaluará cuál es tu personalidad patológica, es decir, cómo es tu manera de ser bajo estrés'),
           ]
@@ -197,23 +185,27 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return baseStory(<Widget>[
       Stack(
         children: <Widget>[
-          glassmorphismCircle(),
+          positionedCircle(),
           SvgPicture.asset(
             brainIcon,
-            colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+            colorFilter: const ColorFilter.mode(primary, BlendMode.srcIn),
             width: 80,
           ),
         ],
       ),
       Text(
         'Evaluación de Salud Mental',
-        style: Theme.of(context).textTheme.titleLarge,
+        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+          color: primary
+        ),
         textAlign: TextAlign.center,
       ),
       RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
-          style: Theme.of(context).textTheme.titleMedium,
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+            color: Colors.black
+          ),
           children: <TextSpan>[
             TextSpan(text: 'IPSA evaluará cuál es el estado de tu salud mental y, en caso de necesitarlo, te pondrá en contacto con un psicólogo de manera gratuita'),
           ]
@@ -252,11 +244,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               children: <Widget>[
                 GestureDetector(
                   onLongPress: () {
-                    _videoController.pause();
                     _indicatorAnimationController.value = IndicatorAnimationCommand.pause;
                   },
                   onLongPressEnd: (LongPressEndDetails details) {
-                    _videoController.play();
                     _indicatorAnimationController.value = IndicatorAnimationCommand.resume;
                   },
                 ),
@@ -270,21 +260,33 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         Row(
                           children: <Widget>[
                             Expanded(
-                              child: GlassmorphismButton(
-                                text: 'Acceder',
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.white
+                                ),
                                 onPressed: () {
                                   showModalBottomSheet(
                                     context: context,
                                     isScrollControlled: true,
+                                    showDragHandle: true,
                                     builder: (BuildContext context) => const ModalLogin()
                                   );
-                                }
-                              ),
+                                },
+                                child: Text(
+                                  'Acceder',
+                                  style: GoogleFonts.montserrat(
+                                    color: primary,
+                                    fontWeight: FontWeight.bold
+                                  ),
+                                ),
+                              )
                             ),
                             const SizedBox(width: 15,),
                             Expanded(
-                              child: GlassmorphismButton(
-                                text: 'Registrarse',
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: primary
+                                ),
                                 onPressed: () {
                                   showModalBottomSheet(
                                     context: context,
@@ -292,8 +294,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                     showDragHandle: true,
                                     builder: (BuildContext context) => const ModalRegister()
                                   );
-                                }
-                              ),
+                                },
+                                child: Text(
+                                  'Registrarse',
+                                  style: GoogleFonts.montserrat(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold
+                                  ),
+                                ),
+                              )
                             ),
                           ],
                         ),
@@ -306,6 +315,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           },
           pageLength: _stories.length,
           storyLength: (int pageIndex) => _stories.length,
+          indicatorVisitedColor: primary,
+          indicatorUnvisitedColor: Colors.white,
           indicatorDuration: const Duration(seconds: 15),
         ),
       )

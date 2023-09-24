@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pozik_front/repositories/user.dart';
 import 'package:pozik_front/utils/http/dio.dart';
 import 'package:pozik_front/utils/info_plus/device.dart';
@@ -10,7 +11,6 @@ import 'package:pozik_front/utils/storage/token_storage.dart';
 import '../../config/colors.dart';
 import '../../config/routes.dart';
 import '../../utils/validation/rules.dart';
-import '../buttons/glassmorphism_button.dart';
 import '../text_form_fields/email.dart';
 import '../text_form_fields/password.dart';
 import 'bottom_sheet.dart';
@@ -104,11 +104,18 @@ class _ModalLoginState extends State<ModalLogin> {
                 validator: (String? value) => passwordRule(value, context),
               ),
               const SizedBox(height: 20,),
-              GlassmorphismButton(
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white
+                ),
                 onPressed: _handleLogin,
-                text: _loading
-                  ? const CircularProgressIndicator()
-                  : 'Acceder'
+                child: Text(
+                  'Acceder',
+                  style: GoogleFonts.montserrat(
+                    color: primary,
+                    fontWeight: FontWeight.bold
+                  ),
+                ),
               ),
               const SizedBox(height: 20,),
               if (_errorMessages != null)

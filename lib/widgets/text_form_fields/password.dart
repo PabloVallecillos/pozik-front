@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../config/colors.dart';
+
 class PasswordTextFormField extends StatefulWidget {
   final FormFieldSetter<String?>? onSaved;
   final FormFieldSetter<String?>? onChanged;
@@ -27,12 +29,16 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
       obscureText: !_passwordVisible,
       decoration: InputDecoration(
         labelText: widget.labelText ?? 'Contraseña',
+        labelStyle: const TextStyle(
+          color: primary,
+          fontWeight: FontWeight.bold
+        ),
         suffixIcon: IconButton(
           icon: Icon(
             !_passwordVisible
               ? Icons.visibility_outlined
               : Icons.visibility_off_outlined,
-            color: Colors.white,
+            color: primary,
           ),
           onPressed: () {
             setState(() {

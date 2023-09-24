@@ -12,7 +12,6 @@ import '../../utils/extensions/string.dart';
 import '../../utils/http/dio.dart';
 import '../../utils/info_plus/device.dart';
 import '../../utils/validation/rules.dart';
-import '../buttons/glassmorphism_button.dart';
 import '../text_form_fields/email.dart';
 import '../text_form_fields/password.dart';
 import 'bottom_sheet.dart';
@@ -103,6 +102,10 @@ class _ModalRegisterState extends State<ModalRegister> {
                   TextFormField(
                     decoration: const InputDecoration(
                       labelText: 'Nombre',
+                      labelStyle: TextStyle(
+                        color: primary,
+                        fontWeight: FontWeight.bold
+                      )
                     ),
                     onSaved: (String? val) {
                       _name = val;
@@ -121,6 +124,10 @@ class _ModalRegisterState extends State<ModalRegister> {
                   TextFormField(
                     decoration: const InputDecoration(
                       labelText: 'Apellidos',
+                      labelStyle: TextStyle(
+                        color: primary,
+                        fontWeight: FontWeight.bold
+                      )
                     ),
                     onSaved: (String? val) {
                       _surname = val;
@@ -166,9 +173,12 @@ class _ModalRegisterState extends State<ModalRegister> {
                     validator: (String? value) => passwordCopyRule(_password ?? '', value ?? '', context),
                   ),
                   const SizedBox(height: 20,),
-                  GlassmorphismButton(
+                  ElevatedButton(
                     onPressed: _handleRegister,
-                    text: !_loading ? 'Registrarse' : const CircularProgressIndicator()
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: primary,
+                    ),
+                    child: !_loading ? Text('Registrarse', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)) : const CircularProgressIndicator()
                   ),
                   const SizedBox(height: 20,),
                   if (_errorMessages != null)

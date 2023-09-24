@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:pozik_front/config/colors.dart';
 
 /// This Package is created by [Ritick Saha] [The flutter foundry]
 /// My [social] handles 🤵🤵🤵:

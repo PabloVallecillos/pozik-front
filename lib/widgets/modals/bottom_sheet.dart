@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pozik_front/config/layout.dart';
 
-import '../../utils/material/gradient.dart';
-import '../containers/glass_morphism.dart';
+import '../../config/colors.dart';
 
 class ModalBottomSheet extends StatelessWidget {
   final Widget child;
@@ -15,18 +15,17 @@ class ModalBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GlassmorphicContainer(
+    return Container(
       width: double.infinity,
       height: height,
-      borderRadius: const BorderRadius.only(
-        topLeft: Radius.circular(40),
-        topRight: Radius.circular(40),
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(radiusCircular),
+          topRight: Radius.circular(radiusCircular),
+        ),
+        color: primaryLight
       ),
-      blur: 6,
-      border: 0,
       alignment: Alignment.center,
-      linearGradient: linearGradient(),
-      borderGradient: borderGradient(),
       child: child,
     );
   }

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:pozik_front/config/colors.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:sentry_logging/sentry_logging.dart';
 
@@ -86,8 +87,9 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver  {
             Locale('en', ''),
             Locale('es', ''),
           ],
-          initialRoute: dashboardRoute,
-          routes: routes
+          initialRoute: formRoute,
+          routes: routes,
+          color: primaryLight,
         );
       }
     );
