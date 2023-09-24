@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pozik_front/config/colors.dart';
 
 import '../../utils/validation/rules.dart';
 
@@ -15,6 +16,10 @@ class EmailTextFormField extends StatelessWidget {
     return TextFormField(
       decoration: const InputDecoration(
         labelText: 'Email',
+        labelStyle: TextStyle(
+          color: primary,
+          fontWeight: FontWeight.bold
+        ),
       ),
       keyboardType: TextInputType.emailAddress,
       onSaved: onSaved,
