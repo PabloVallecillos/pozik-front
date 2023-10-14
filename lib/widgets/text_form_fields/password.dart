@@ -26,13 +26,10 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: const TextStyle(color: Colors.black),
       obscureText: !_passwordVisible,
       decoration: InputDecoration(
         labelText: widget.labelText ?? 'Contraseña',
-        labelStyle: const TextStyle(
-          color: primary,
-          fontWeight: FontWeight.bold
-        ),
         suffixIcon: IconButton(
           icon: Icon(
             !_passwordVisible

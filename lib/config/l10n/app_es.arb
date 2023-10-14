@@ -43,5 +43,15 @@
   "password_copy": "Repetir contraseña",
   "passwords_match": "Las contraseñas deben coincidir",
   "passwords_not_match": "Las contraseñas no coinciden",
-  "surname": "apellidos"
+  "surname": "apellidos",
+  "strongly_disagree": "Muy en desacuerdo",
+  "disagree": "En desacuerdo",
+  "neither_agree_nor_disagree": "Ni de acuerdo ni en desacuerdo",
+  "agree": "De acuerdo",
+  "strongly_agree": "Muy de acuerdo",
+  "yes": "Sí",
+  "no": "No",
+  "mental_health_evaluation": "Evaluación de salud mental",
+  "mental_health_subtitle": "Marca \"Sí\" en las siguientes preguntas si te han sucedido en el último mes",
+  "personality_test": "Test de personalidad"
 }

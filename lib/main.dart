@@ -87,7 +87,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver  {
             Locale('en', ''),
             Locale('es', ''),
           ],
-          initialRoute: formRoute,
+          initialRoute: formRoute + mentalHealth,
           routes: routes,
           color: primaryLight,
         );

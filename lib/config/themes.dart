@@ -79,7 +79,8 @@ ThemeData lightTheme = ThemeData(
       ),
     ),
     labelStyle: TextStyle(
-      fontWeight: FontWeight.bold
+      fontWeight: FontWeight.bold,
+      color: primary
     )
   ),
   colorScheme: const ColorScheme(
@@ -102,7 +103,7 @@ ThemeData lightTheme = ThemeData(
       ),
       labelLarge: TextStyle(
         fontWeight: FontWeight.w500
-      )
+      ),
     )
   ),
   pageTransitionsTheme: const PageTransitionsTheme(builders: <TargetPlatform, PageTransitionsBuilder>{
@@ -205,7 +206,7 @@ ThemeData darkTheme = ThemeData(
     ),
     focusColor: Color(0xfff7f7f7),
     labelStyle: TextStyle(
-      color: Colors.white
+      color: primary
     ),
   ),
   pageTransitionsTheme: const PageTransitionsTheme(builders: <TargetPlatform, PageTransitionsBuilder>{

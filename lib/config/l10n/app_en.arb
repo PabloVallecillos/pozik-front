@@ -43,5 +43,15 @@
   "password_copy": "Repeat password",
   "passwords_match": "Passwords must match",
   "passwords_not_match": "Passwords do not match",
-  "surname": "surname"
+  "surname": "surname",
+  "strongly_disagree": "Strongly disagree",
+  "disagree": "Disagree",
+  "neither_agree_nor_disagree": "Neither agree nor disagree",
+  "agree": "Agree",
+  "strongly_agree": "Strongly agree",
+  "yes": "Yes",
+  "no": "No",
+  "mental_health_evaluation": "Mental health evaluation",
+  "mental_health_subtitle": "Check \"Yes\" on the following questions if they have happened to you in the past month",
+  "personality_test": "Personality test"
 }

@@ -14,12 +14,9 @@ class EmailTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: const TextStyle(color: Colors.black),
       decoration: const InputDecoration(
         labelText: 'Email',
-        labelStyle: TextStyle(
-          color: primary,
-          fontWeight: FontWeight.bold
-        ),
       ),
       keyboardType: TextInputType.emailAddress,
       onSaved: onSaved,
