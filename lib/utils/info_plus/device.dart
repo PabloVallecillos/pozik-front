@@ -25,3 +25,16 @@ Future<String> getDevice({String? platform}) async
   }
   return model;
 }
+
+String getUserTimeZone() {
+  final DateTime time = DateTime.now();
+  String twoDigits(int n) {
+    if (n >= 10) return '$n';
+    return '0$n';
+  }
+  final Duration duration = time.timeZoneOffset;
+  final int hours = duration.inHours;
+  final int minutes = duration.inMinutes.remainder(60).abs().toInt();
+
+  return '${hours > 0 ? '+' : '-'}${twoDigits(hours.abs())}:${twoDigits(minutes)}';
+}

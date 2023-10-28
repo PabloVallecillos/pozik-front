@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pozik_front/repositories/user.dart';
 import 'package:pozik_front/utils/http/dio.dart';
@@ -9,7 +10,7 @@ import 'package:pozik_front/utils/info_plus/device.dart';
 import 'package:pozik_front/utils/storage/token_storage.dart';
 
 import '../../config/colors.dart';
-import '../../config/routes.dart';
+import '../../config/router.dart';
 import '../../utils/validation/rules.dart';
 import '../text_form_fields/email.dart';
 import '../text_form_fields/password.dart';
@@ -49,7 +50,7 @@ class _ModalLoginState extends State<ModalLogin> {
         if (!context.mounted) {
           return;
         }
-        Navigator.of(context).pushReplacementNamed(dashboardRoute);
+        context.goNamed(dashboardRoute);
       } on DioException catch (e) {
         String errorMessages = 'Ha ocurrido un error inesperado, vuelva a intentarlo más tarde';
         if (e.response?.statusCode == HttpStatus.unprocessableEntity) {

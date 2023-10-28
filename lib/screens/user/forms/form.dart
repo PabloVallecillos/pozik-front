@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pozik_front/screens/custom_transition_page.dart';
 
 import '../../../config/colors.dart';
 import '../../../config/images.dart';
@@ -12,6 +14,7 @@ import '../../../widgets/text_form_fields/email.dart';
 import '../../../widgets/text_form_fields/password.dart';
 
 class FormScreen extends StatefulWidget {
+  final String img;
   final String title;
   final String? subtitle;
   final List<String> questions;
@@ -19,6 +22,7 @@ class FormScreen extends StatefulWidget {
 
   const FormScreen({
     super.key,
+    required this.img,
     required this.title,
     this.subtitle,
     required this.questions,
@@ -77,9 +81,12 @@ class _FormScreenState extends State<FormScreen> with TickerProviderStateMixin {
     FormCard(
       children: <Widget>[
         Align(
-          child: SvgPicture.asset(
-            personalityImg,
-            width: 150,
+          child: Hero(
+            tag: 'hero${widget.img}',
+            child: SvgPicture.asset(
+              widget.img,
+              width: 150,
+            ),
           ),
         ),
         const SizedBox(height: 10,),
@@ -281,7 +288,9 @@ class _FormScreenState extends State<FormScreen> with TickerProviderStateMixin {
                   offset: const Offset(-10, 0),
                   child: IconButton(
                     icon: const Icon(Icons.arrow_back, color: primary,),
-                    onPressed: () {}
+                    onPressed: () {
+                      context.pop();
+                    }
                   ),
                 ),
                 Expanded(

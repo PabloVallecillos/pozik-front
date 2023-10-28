@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:pozik_front/config/images.dart';
 
 import 'form.dart';
 
-class PersonalityScreen extends StatelessWidget {
-  const PersonalityScreen({super.key});
+class PersonalityFormScreen extends StatelessWidget {
+  const PersonalityFormScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return FormScreen(
+      img: personalityImg,
       title: AppLocalizations.of(context).personality_test,
       questions: const <String>[
         '1. Estoy todo el día soñando despierto/a',

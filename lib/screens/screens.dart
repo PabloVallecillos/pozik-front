@@ -1,4 +1,4 @@
-export 'dashboard_scaffold.dart';
+export 'not_found.dart';
 export 'user/dashboard.dart';
 export 'user/forms/mental_health.dart';
 export 'user/forms/personality.dart';

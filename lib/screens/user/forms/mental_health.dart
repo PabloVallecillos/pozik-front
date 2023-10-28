@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:pozik_front/config/images.dart';
 
 import 'form.dart';
 
-class MentalHealthScreen extends StatelessWidget {
-  const MentalHealthScreen({super.key});
+class MentalHealthFormScreen extends StatelessWidget {
+  const MentalHealthFormScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return FormScreen(
+      img: mentalHealthImg,
       title: AppLocalizations.of(context).mental_health_evaluation,
       subtitle: AppLocalizations.of(context).mental_health_subtitle,
       questions: const <String>[

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pozik_front/utils/info_plus/package.dart';
 import 'package:pozik_front/utils/material/messenger_service.dart';
 
@@ -56,7 +57,7 @@ class _ModalRegisterState extends State<ModalRegister> {
         if (!context.mounted) {
           return;
         }
-        Navigator.of(context).pop();
+        context.pop();
         showSnackBar('Bienvenido, recibirá un email para confirmar su correo', position: Position.up, context: context);
       } on DioException catch (e) {
         String errorMessages = 'Ha ocurrido un error inesperado, vuelva a intentarlo más tarde';

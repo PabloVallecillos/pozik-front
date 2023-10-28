@@ -43,7 +43,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         Padding(
           padding: const EdgeInsets.all(40),
           child: Column(
-            key: UniqueKey(),
             mainAxisAlignment: MainAxisAlignment.center,
             children: children.animate().fade(duration: 600.ms).slide(duration: 600.ms)
           )

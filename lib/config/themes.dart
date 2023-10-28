@@ -106,10 +106,10 @@ ThemeData lightTheme = ThemeData(
       ),
     )
   ),
-  pageTransitionsTheme: const PageTransitionsTheme(builders: <TargetPlatform, PageTransitionsBuilder>{
-    TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-    TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-  }),
+  // pageTransitionsTheme: const PageTransitionsTheme(builders: <TargetPlatform, PageTransitionsBuilder>{
+  //   TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+  //   TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+  // }),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       minimumSize: const Size.fromHeight(50),
@@ -209,10 +209,10 @@ ThemeData darkTheme = ThemeData(
       color: primary
     ),
   ),
-  pageTransitionsTheme: const PageTransitionsTheme(builders: <TargetPlatform, PageTransitionsBuilder>{
-    TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-    TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-  }),
+  // pageTransitionsTheme: const PageTransitionsTheme(builders: <TargetPlatform, PageTransitionsBuilder>{
+  //   TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+  //   TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+  // }),
   colorScheme: const ColorScheme(
     error: red,
     onError: red,

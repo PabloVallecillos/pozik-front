@@ -17,4 +17,9 @@ class Repository
   {
     return _dio.client.post(path, data: data);
   }
+
+  Future<Response<T>> patch<T>(String path, Map<String, dynamic> data, Options options) async
+  {
+    return _dio.client.patch(path, data: data, options: options);
+  }
 }
